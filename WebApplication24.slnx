@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../WebApplication25/WebApplication25.csproj" />
+  <Project Path="../WpfApp1/WpfApp1.csproj" />
+  <Project Path="WebApplication24.csproj" />
+</Solution>

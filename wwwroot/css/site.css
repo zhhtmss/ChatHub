@@ -1,0 +1,62 @@
+:root {
+    --ink: #1d2742;
+    --muted: #6e7890;
+    --brand: #5a57ea;
+    --brand-dark: #4642ca;
+    --surface: #ffffff;
+    --page: #eef2ff;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--ink);
+    background: radial-gradient(circle at 7% 5%, #d9ecff 0, transparent 25rem), radial-gradient(circle at 93% 95%, #e7dcff 0, transparent 28rem), var(--page);
+}
+
+.app-page { min-height: 100vh; display: grid; place-items: center; }
+.auth-card { width: min(100%, 28rem); border-radius: 1.5rem; }
+.chat-shell { width: min(100%, 72rem); height: min(46rem, calc(100vh - 3rem)); min-height: 32rem; border-radius: 1.5rem; background: var(--surface); }
+.brand-mark { color: var(--brand); font-size: .9rem; font-weight: 800; letter-spacing: .03em; }
+.brand-icon { display: inline-grid; width: 1.55rem; height: 1.55rem; place-items: center; margin-right: .2rem; border-radius: .5rem; color: #fff; background: linear-gradient(135deg, #817cff, #4c46dc); }
+.form-control { border-color: #dce1ed; padding: .7rem .85rem; }
+.form-control:focus { border-color: #9f9cf8; box-shadow: 0 0 0 .25rem rgba(90, 87, 234, .13); }
+.btn-primary { border-color: var(--brand); background-color: var(--brand); }
+.btn-primary:hover, .btn-primary:focus { border-color: var(--brand-dark); background-color: var(--brand-dark); }
+.sidebar { overflow-y: auto; background: #fbfcff; }
+.logout-button { flex: 0 0 auto; width: 2rem; height: 2rem; color: var(--muted); font-size: 1.05rem; }
+.letter-spaced { letter-spacing: .08em; font-size: .68rem; }
+.general-chat-button { display: flex; align-items: center; gap: .7rem; padding: .7rem; border: 0; border-radius: .8rem; color: #fff; background: linear-gradient(135deg, #6965f0, #4d49d8); text-align: left; box-shadow: 0 .4rem 1rem rgba(80, 75, 224, .2); }
+.general-chat-icon { display: grid; width: 2.1rem; height: 2.1rem; place-items: center; border-radius: .65rem; background: rgba(255,255,255,.18); font-size: 1.1rem; font-weight: 800; }
+.user-row { display: flex; align-items: center; gap: .7rem; padding: .65rem .55rem; border: 0; border-radius: .75rem !important; color: #35405a; background: transparent; text-align: left; transition: background-color .15s ease, color .15s ease; }
+.user-row:hover, .user-row.selected { color: var(--brand-dark); background: #eeefff; }
+.avatar { display: grid; flex: 0 0 auto; width: 2.6rem; height: 2.6rem; place-items: center; border-radius: 50%; color: var(--brand); background: #e9e9ff; font-weight: 750; }
+.avatar.small { width: 2.15rem; height: 2.15rem; font-size: .8rem; }
+.chat-shell .row { min-height: 0; }
+.conversation { display: grid !important; min-width: 0; min-height: 0; grid-template-rows: auto minmax(0, 1fr) auto; }
+.messages { display: flex; min-height: 0; flex-direction: column; gap: .75rem; overflow-y: auto; padding: 1.5rem; background: linear-gradient(180deg, #fff, #fafbff); }
+.composer { min-height: 0; }
+.empty-state { max-width: 19rem; margin: auto; color: var(--muted); text-align: center; }
+.message { display: flex; max-width: min(78%, 35rem); flex-direction: column; }
+.message.mine { align-self: flex-end; align-items: flex-end; }
+.message.theirs { align-self: flex-start; align-items: flex-start; }
+.bubble { padding: .7rem .9rem; border-radius: 1rem 1rem 1rem .25rem; color: #30384e; background: #eef1f7; overflow-wrap: anywhere; white-space: pre-wrap; }
+.mine .bubble { border-radius: 1rem 1rem .25rem 1rem; color: #fff; background: linear-gradient(135deg, #6965f0, #504be0); }
+.message-meta { display: flex; align-items: center; gap: .65rem; padding: .25rem .15rem 0; color: #9199aa; font-size: .7rem; }
+.message-author { padding: 0 .2rem .15rem; color: #737d92; font-size: .7rem; font-weight: 700; }
+.mine .message-author { color: #615ee6; }
+.delete-button { padding: 0; border: 0; color: #bd4d5d; background: none; font-size: .7rem; }
+
+@media (max-width: 575.98px) {
+    .app-page { padding: 0 !important; }
+    .chat-shell { width: 100%; height: 100vh; min-height: 0; border-radius: 0; }
+    .sidebar { padding-inline: .25rem; }
+    .sidebar .brand-mark { font-size: .75rem; }
+    .sidebar .brand-icon { display: none; }
+    .general-chat-button { justify-content: center; padding: .65rem .25rem; }
+    .general-chat-button > span:last-child { display: none; }
+    .user-row { justify-content: center; padding: .65rem .25rem; }
+    .user-name { display: none; }
+    .conversation-head { padding-inline: 1rem !important; }
+    .messages { padding: 1rem .75rem; }
+    .composer { padding: .75rem !important; }
+}

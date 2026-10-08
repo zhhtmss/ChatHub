@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Особисті повідомлення";
+}
+
+<main class="app-page container py-4 py-lg-5">
+    <section id="authPanel" class="auth-card card border-0 shadow-lg mx-auto">
+        <div class="card-body p-4 p-md-5">
+            <div class="brand-mark mb-4"><span class="brand-icon">✦</span> Листування</div>
+            <h1 id="authTitle" class="h2 fw-bold mb-2">Вітаємо</h1>
+            <p class="text-secondary mb-4">Увійдіть, щоб продовжити спілкування.</p>
+            <form id="authForm" novalidate>
+                <div class="mb-3">
+                    <label for="authUsername" class="form-label fw-medium">Ім’я користувача</label>
+                    <input id="authUsername" class="form-control form-control-lg" autocomplete="username" minlength="3" maxlength="24" required />
+                </div>
+                <div class="mb-3">
+                    <label for="authPassword" class="form-label fw-medium">Пароль</label>
+                    <input id="authPassword" class="form-control form-control-lg" type="password" autocomplete="current-password" minlength="8" required />
+                </div>
+                <div id="authError" class="alert alert-danger d-none py-2 small" role="alert"></div>
+                <button id="authSubmit" class="btn btn-primary btn-lg w-100" type="submit">Увійти</button>
+            </form>
+            <button id="toggleAuth" class="btn btn-link w-100 mt-3 text-decoration-none" type="button">Створити обліковий запис</button>
+        </div>
+    </section>
+
+    <section id="chatPanel" class="chat-shell card border-0 shadow-lg overflow-hidden d-none">
+        <div class="row g-0 h-100">
+            <aside class="col-4 col-lg-3 sidebar border-end">
+                <div class="d-flex align-items-center justify-content-between px-2 pt-2 pb-4">
+                    <div class="overflow-hidden"><div class="brand-mark"><span class="brand-icon">✦</span> Листування</div><div id="currentUser" class="small text-secondary text-truncate mt-1"></div></div>
+                    <button id="logout" class="btn btn-light btn-sm rounded-circle logout-button" title="Вийти" aria-label="Вийти">↗</button>
+                </div>
+                <button id="generalChat" class="general-chat-button w-100 mb-4" type="button">
+                    <span class="general-chat-icon">#</span>
+                    <span class="text-start"><span class="d-block fw-semibold">Загальний чат</span><span class="small opacity-75">Для всіх користувачів</span></span>
+                </button>
+                <div class="px-2 mb-2 text-uppercase text-secondary small fw-semibold letter-spaced">Користувачі</div>
+                <div id="usersList" class="list-group list-group-flush"></div>
+            </aside>
+            <section class="col-8 col-lg-9 conversation d-flex flex-column">
+                <header class="conversation-head d-flex align-items-center gap-3 px-3 px-lg-4 py-3 border-bottom">
+                    <div class="avatar" id="activeAvatar">?</div>
+                    <div class="overflow-hidden"><h1 id="conversationTitle" class="h5 fw-bold mb-1 text-truncate">Оберіть співрозмовника</h1><div id="conversationHint" class="small text-secondary">Ваші особисті діалоги</div></div>
+                </header>
+                <div id="messages" class="messages flex-grow-1"><div class="empty-state">Оберіть користувача ліворуч, щоб почати розмову.</div></div>
+                <form id="messageForm" class="composer d-none border-top p-3" novalidate>
+                    <div class="input-group"><input id="messageInput" class="form-control" maxlength="4000" placeholder="Напишіть повідомлення…" autocomplete="off" required /><button class="btn btn-primary px-3" type="submit">Надіслати</button></div>
+                </form>
+            </section>
+        </div>
+    </section>
+</main>
